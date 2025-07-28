@@ -14,7 +14,7 @@ jobs:
           node-version: '18.x'
       - name: Install dependencies
         run: cd backend && npm install
-      - name: Build
-        run: cd backend && npm run build --if-present
+      - name: Install dev dependencies
+        run: cd backend && npm install supertest jest --save-dev
       - name: Test
         run: cd backend && npm test
