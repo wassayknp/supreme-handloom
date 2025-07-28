@@ -1,0 +1,20 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+      - name: Install dependencies
+        run: cd backend && npm install
+      - name: Install dev dependencies
+        run: cd backend && npm install supertest jest --save-dev
+      - name: Test
+        run: cd backend && npm test
